@@ -1,6 +1,6 @@
 /**************************************************************************************************
  *@purpose Implementing User Registration Program Using REGEX. Validating User First Name, 
- * Last Name and email id.
+ *Last Name, email id, Phone Number and  Password
  *@author Rekha
  *@version 1.0
  *@since 18-06-2021
@@ -41,9 +41,8 @@ public class UserRegistration {
 	}
 
 	/**
-	 * isLastName is a method of static boolean type isLastName method used to
-	 * validate user last name
-	 * 
+	 * isLastName is a method of static boolean type 
+	 * isLastName method used to validate user last name
 	 * @param lastname
 	 * @return if pattern matches method returns true otherwise it return false
 	 */
@@ -59,11 +58,10 @@ public class UserRegistration {
 	}
 
 	/**
-	 * isvalidateEmail is a method of static boolean type isLastName method used to
+	 * isvalidateEmail is a method of static boolean type 
 	 * isvalidateEmail method used to validate user Email id
-	 * 
 	 * @param email
-	 * @return if pattern matches method returns true otherwise it return false
+	 *@return if pattern matches method returns true otherwise it return false
 	 */
 
 	public static boolean isvalidateEmail(String email) {
@@ -75,10 +73,29 @@ public class UserRegistration {
 		Matcher match2 = patt2.matcher(email);
 		return match2.matches();
 	}
+	
+ 
+	/**
+	 * isMobileFormatValid is a method of static boolean type
+	 * isMobileFormatValid method used to validate user mobile number
+	 * @param mobile
+	 * @return if pattern matches method returns true otherwise it return false
+	 */
+	public static boolean isMobileFormatValid(String mobile) {
+		String regex = "^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+		Pattern patt = Pattern.compile(regex);
+		if (mobile == null) {
+			return false;
+		}
+		Matcher match = patt.matcher(mobile);
+		return match.matches();
+	}
+	
 
 	/**
-	 * Main method Will ask user to enter first name, last name and email id to
-	 * Validate and prints weather its correct or not correct
+	 * Main method Will ask user to enter first name, last name,
+	 * email id, phone number and  password to Validate and prints
+	 * weather its correct or not correct
 	 *
 	 */
 
@@ -90,6 +107,8 @@ public class UserRegistration {
 		String lastname = input.nextLine();
 		System.out.println("Enter Email id:");
 		String email = input.nextLine();
+		System.out.println("Enter mobile number");
+		String phoneNumber = input.nextLine();
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
@@ -107,5 +126,11 @@ public class UserRegistration {
 		} else {
 			System.out.println("Email id  is Incorrect ");
 		}
+		if (isMobileFormatValid(phoneNumber) == true) {
+			System.out.println("Phone Number is correct");
+		} else {
+			System.out.println("Phone Number is Incorrect");
+		}
 	}
+	
 }
