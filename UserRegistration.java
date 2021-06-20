@@ -57,26 +57,6 @@ public class UserRegistration {
 		Matcher match2 = patt2.matcher(lastname);
 		return match2.matches();
 	}
-
-	/**
-	 * Uc3 & Uc9
-	 * @method validateEmail Check the pattern for email
-	 * isvalidateEmail is a method of static boolean type 
-	 * isvalidateEmail method used to validate user Email id
-	 * @param email
-	 *@return if pattern matches method returns true otherwise it return false
-	 */
-
-	public static boolean isvalidateEmail(String email) {
-		String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
-		Pattern patt2 = Pattern.compile(regex);
-		if (email == null) {
-			return false;
-		}
-		Matcher match2 = patt2.matcher(email);
-		return match2.matches();
-	}
-	
  
 	/**
 	 * isMobileFormatValid is a method of static boolean type
@@ -129,8 +109,6 @@ public class UserRegistration {
 		String firstname = input.nextLine();
 		System.out.println("Enter lastname:");
 		String lastname = input.nextLine();
-		System.out.println("Enter Email id:");
-		String email = input.nextLine();
 		System.out.println("Enter mobile number");
 		String phoneNumber = input.nextLine();
 		System.out.println("Enter password");
@@ -147,11 +125,8 @@ public class UserRegistration {
 			System.out.println("Lasrname is Incorrect " + "\n"
 					+ "Last name should starts with Capital letter and has minimum 3 characters");
 		}
-		if (isvalidateEmail(email) == true) {
-			System.out.println("Email id is Correct");
-		} else {
-			System.out.println("Email id  is Incorrect ");
-		}
+		System.out.println("Lets validate email addreess");
+		EmailValidate.email();
 		if (isMobileFormatValid(phoneNumber) == true) {
 			System.out.println("Phone Number is correct");
 		} else {
@@ -165,3 +140,4 @@ public class UserRegistration {
 	}
 	
 }
+
