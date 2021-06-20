@@ -1,5 +1,6 @@
 /**************************************************************************************************
- *@purpose Implementing User Registration Program Using REGEX. Validating User First and Last Name
+ *@purpose Implementing User Registration Program Using REGEX. Validating User First Name, 
+ * Last Name and email id.
  *@author Rekha
  *@version 1.0
  *@since 18-06-2021
@@ -58,8 +59,26 @@ public class UserRegistration {
 	}
 
 	/**
-	 * Main method Will ask user to enter first and last name to Validate and prints
-	 * weather its correct or not correct
+	 * isvalidateEmail is a method of static boolean type isLastName method used to
+	 * isvalidateEmail method used to validate user Email id
+	 * 
+	 * @param email
+	 * @return if pattern matches method returns true otherwise it return false
+	 */
+
+	public static boolean isvalidateEmail(String email) {
+		String regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";
+		Pattern patt2 = Pattern.compile(regex);
+		if (email == null) {
+			return false;
+		}
+		Matcher match2 = patt2.matcher(email);
+		return match2.matches();
+	}
+
+	/**
+	 * Main method Will ask user to enter first name, last name and email id to
+	 * Validate and prints weather its correct or not correct
 	 *
 	 */
 
@@ -69,6 +88,8 @@ public class UserRegistration {
 		String firstname = input.nextLine();
 		System.out.println("Enter lastname:");
 		String lastname = input.nextLine();
+		System.out.println("Enter Email id:");
+		String email = input.nextLine();
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
@@ -80,6 +101,11 @@ public class UserRegistration {
 		} else {
 			System.out.println("Lasrname is Incorrect " + "\n"
 					+ "Last name should starts with Capital letter and has minimum 3 characters");
+		}
+		if (isvalidateEmail(email) == true) {
+			System.out.println("Email id is Correct");
+		} else {
+			System.out.println("Email id  is Incorrect ");
 		}
 	}
 }
