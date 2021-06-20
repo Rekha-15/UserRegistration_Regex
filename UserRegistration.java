@@ -1,9 +1,9 @@
-/***********************************************************************************************
- *@purpose Implementing User Registration Program Using REGEX. Validating User First Name
+/**************************************************************************************************
+ *@purpose Implementing User Registration Program Using REGEX. Validating User First and Last Name
  *@author Rekha
  *@version 1.0
  *@since 18-06-2021
- ************************************************************************************************/
+ ****************************************************************************************************/
 
 package com;
 
@@ -40,7 +40,25 @@ public class UserRegistration {
 	}
 
 	/**
-	 * Main method Will ask user to enter first name to Validates it and prints
+	 * isLastName is a method of static boolean type isLastName method used to
+	 * validate user last name
+	 * 
+	 * @param lastname
+	 * @return if pattern matches method returns true otherwise it return false
+	 */
+
+	public static boolean isLastName(String lastname) {
+		String regex = "^[A-Z]{1}[a-z]{2,}";
+		Pattern patt2 = Pattern.compile(regex);
+		if (lastname == null) {
+			return false;
+		}
+		Matcher match2 = patt2.matcher(lastname);
+		return match2.matches();
+	}
+
+	/**
+	 * Main method Will ask user to enter first and last name to Validate and prints
 	 * weather its correct or not correct
 	 *
 	 */
@@ -49,11 +67,19 @@ public class UserRegistration {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter firstname:");
 		String firstname = input.nextLine();
+		System.out.println("Enter lastname:");
+		String lastname = input.nextLine();
 		if (isFirstName(firstname) == true) {
 			System.out.println("Firstname is Correct");
 		} else {
 			System.out.println("Firstname is Incorrect " + "\n"
-					+ "First name starts with Capital letter and has minimum 3 characters");
+					+ "First name should starts with Capital letter and has minimum 3 characters");
+		}
+		if (isLastName(lastname) == true) {
+			System.out.println("Lastname is Correct");
+		} else {
+			System.out.println("Lasrname is Incorrect " + "\n"
+					+ "Last name should starts with Capital letter and has minimum 3 characters");
 		}
 	}
 }
