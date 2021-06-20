@@ -1,6 +1,7 @@
 /**************************************************************************************************
  *@purpose Implementing User Registration Program Using REGEX. Validating User First Name, 
  *Last Name, email id, Phone Number and  Password
+ *Should clear all email samples provided separately
  *@author Rekha
  *@version 1.0
  *@since 18-06-2021
@@ -58,6 +59,8 @@ public class UserRegistration {
 	}
 
 	/**
+	 * Uc3 & Uc9
+	 * @method validateEmail Check the pattern for email
 	 * isvalidateEmail is a method of static boolean type 
 	 * isvalidateEmail method used to validate user Email id
 	 * @param email
