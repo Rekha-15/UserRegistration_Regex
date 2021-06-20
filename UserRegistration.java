@@ -95,15 +95,16 @@ public class UserRegistration {
 	/**
 	 * isPasswordValid is a method of static boolean type
 	 * isPasswordValid method used to validate user password 
-	 * Rule : should have at least 8 characters 
-	 * Rule 2 : should have atleast one upper and lower case letter 
-	 * Rule 3 : password should have at least 1 numbers.
+	 * Rule 1 : should have at least 8 characters 
+	 * Rule 2 : Should have atleast one upper and lower case letter 
+	 * Rule 3 : Password should have at least 1 numbers.
+	 * Rule 4 : should exactly 1 Special Character
 	 * @param password
 	 * @return if pattern matches method returns true otherwise it return false
 	 */
 	
 	public static boolean isPasswordValid(String password) {
-		String regex = ("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$");;
+		String regex = ("^(?=.*[@#$%^&+=])(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$");
 		Pattern patt = Pattern.compile(regex);
 		if (password == null) {
 			return false;
