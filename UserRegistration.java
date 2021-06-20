@@ -98,7 +98,7 @@ public class UserRegistration {
 	 * Rule 1 : should have at least 8 characters 
 	 * Rule 2 : Should have atleast one upper and lower case letter 
 	 * Rule 3 : Password should have at least 1 numbers.
-	 * Rule 4 : should exactly 1 Special Character
+	 * Rule 4 : should have exactly 1 Special Character
 	 * @param password
 	 * @return if pattern matches method returns true otherwise it return false
 	 */
